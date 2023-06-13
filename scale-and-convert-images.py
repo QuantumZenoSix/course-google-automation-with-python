@@ -1,13 +1,13 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
+import os
+from PIL import Image
 
-"""
-Qwiklabs Assessment: Scale and convert images using PIL
-"""
+img_src = "/home/student-01-e20131f09923/supplier-data/images"
 
-from PIL import Image import os 
-
-for file in os.listdir("./images"): 
-    try: 
-        img = Image.open("./images/" + file).convert("RGB") #print(img) new img = img.resize((128,128)).rotate(90) new img.save("images2/" + file + ".jpeg") 
-    except: 
-        print("Skipping: " + file) 
+for file in os.listdir(img_src):
+    try:
+        img = Image.open("./images/" + file).convert("RGB") #print(img)
+        new_img = img.resize((600,1400))
+        new_img.save(img_src + "/" + file + ".jpeg")
+    except:
+        print("Skipping: " + file)
