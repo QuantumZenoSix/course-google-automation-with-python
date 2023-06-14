@@ -2,8 +2,7 @@
 from PIL import Image
 import os
 
-student_id = "student-01-439710e8fd7b"
-img_src = "/home/{}/supplier-data/images".format(student_id)
+img_src = "/home/{}/supplier-data/images".format(os.environ.get('USER'))
 
 for file in os.listdir(img_src):
     try:
