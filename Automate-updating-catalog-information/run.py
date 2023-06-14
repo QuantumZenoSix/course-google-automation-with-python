@@ -9,9 +9,8 @@ import os
 import requests
 
 vm_ip="<vm_ip>"
-student_id = "<student>"
 url = f"http://{vm_ip}/fruits/"
-text_src = "/home/{}/supplier-data/descriptions/".format(student_id)
+text_src = "/home/{}/supplier-data/descriptions/".format(os.environ.get('USER'))
 
 for file in os.listdir(text_src):
 
