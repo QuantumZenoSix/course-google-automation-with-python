@@ -2,10 +2,13 @@
 from PIL import Image
 import os
 
-path = "./supplier-data/images/"
-for f in os.listdir("./supplier-data/images"):
-    if f.endswith(".tiff"):
-        split_f = f.split(".")
-        name = split_f[0] + ".jpeg"
-        im = Image.open(path + f).convert("RGB")
-        im.resize((600, 400)).save("./supplier-data/images/" + name, "JPEG")
+student_id = "student-01-439710e8fd7b"
+img_src = "/home/{}/supplier-data/images".format(student_id)
+
+for file in os.listdir(img_src):
+    try:
+        img = Image.open(img_src + "/" + file).convert("RGB") #print(img)
+        new_img = img.resize((600,400))
+        new_img.save(img_src + "/" + file.replace("tiff","jpeg"))
+    except:
+        print("Skipping: " + file)
